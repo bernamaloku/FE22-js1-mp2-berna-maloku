@@ -64,19 +64,27 @@ function updateScore() {
   document.getElementById("cScore").textContent = "Datorn: " + cScore;
 }
 
-
 function checkWinner() {
   setTimeout(function () {
-  if (pScore >= 3 || cScore >= 3) {
-    if (pScore >= 3) {
-      alert("Du har vunnit!");
-      return true;
-    } else {
-      alert("Du förlora :(! Testa igen");
-      return true;
+    if (pScore >= 3 || cScore >= 3) {
+      if (pScore >= 3) {
+        alert("Du har vunnit!");
+        resetTheGame();
+        location.reload(true);
+      } else {
+        alert("Du förlora :(! Testa igen");
+        resetTheGame();
+        location.reload(true);
+      }
     }
-  }
-  return false;
-  }, 200)
+  }, 200);
+}
 
-};
+function resetTheGame() {
+  pScore = 0;
+  cScore = 0;
+  cScore.innerText = 0;
+  pScore.innerText = 0;
+  cInput = 0;
+  pInput = 0;
+}
