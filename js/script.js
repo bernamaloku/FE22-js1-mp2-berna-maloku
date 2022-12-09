@@ -60,13 +60,15 @@ function compareInputs(pInput, cInput) {
 }
 
 function updateScore() {
-  document.getElementById("pScore").textContent = "Du: " + pScore;
+  document.getElementById("pScore").textContent = username + ": " + pScore;
   document.getElementById("cScore").textContent = "Datorn: " + cScore;
 }
 
+
 function checkWinner() {
-  if (pScore === 3 || cScore === 3) {
-    if (pScore === 3) {
+  setTimeout(function () {
+  if (pScore >= 3 || cScore >= 3) {
+    if (pScore >= 3) {
       alert("Du har vunnit!");
       return true;
     } else {
@@ -75,4 +77,6 @@ function checkWinner() {
     }
   }
   return false;
-}
+  }, 200)
+
+};
